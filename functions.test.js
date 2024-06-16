@@ -144,3 +144,21 @@ describe("Takes a string and a shift factor and returns it with each character '
     },
   );
 });
+
+/**
+ * Test of array analyzer
+ */
+
+const analyzeArrayCases = [
+  [[1, 2, 3], { Average: 2, Minimum: 1, Maximum: 3, Length: 3 }],
+  [[1, 8, 3, 4, 2, 6], { Average: 4, Minimum: 1, Maximum: 8, Length: 6 }],
+];
+
+describe("Takes an array of numbers and returns an object with the following properties: average, min, max, and length", () => {
+  test.each(analyzeArrayCases)(
+    "given %p as argument, returns %p",
+    (arrayInput, result) => {
+      expect(functions.analyzeArray(arrayInput)).toEqual(result);
+    },
+  );
+});

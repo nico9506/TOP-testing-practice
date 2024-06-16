@@ -112,4 +112,31 @@ const caesarCipher = (() => {
   return { encrypt };
 })();
 
-module.exports = { capitalize, reverseString, calculator, caesarCipher };
+const analyzeArray = (inputArray) => {
+  const avg =
+    inputArray.reduce(
+      (accumulator, currentValue) => accumulator + currentValue,
+      0,
+    ) / inputArray.length;
+
+  const min = Math.min(...inputArray);
+
+  const max = Math.max(...inputArray);
+
+  const len = inputArray.length;
+
+  return {
+    Average: avg,
+    Minimum: min,
+    Maximum: max,
+    Length: len,
+  };
+};
+
+module.exports = {
+  capitalize,
+  reverseString,
+  calculator,
+  caesarCipher,
+  analyzeArray,
+};
