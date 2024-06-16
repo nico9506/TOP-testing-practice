@@ -63,4 +63,53 @@ const calculator = (() => {
   return { add, subtract, divide, multiply };
 })();
 
-module.exports = { capitalize, reverseString, calculator };
+const caesarCipher = (() => {
+  const encrypt = (word, n) => {
+    const wordArray = word.split("");
+    const encryptedArray = [];
+
+    wordArray.forEach((char) => {
+      if (
+        char.charCodeAt() < 65 ||
+        (char.charCodeAt() > 90 && char.charCodeAt() < 97) ||
+        char.charCodeAt() > 122
+      ) {
+        // Punctuations, spaces, and other non-alphabeticalcharacters
+        // characters remain unchanged
+        encryptedArray.push(char);
+      } else {
+        char === char.toUpperCase()
+          ? encryptedArray.push(encryptUpperCase(char, n))
+          : encryptedArray.push(encryptLowerCase(char, n));
+      }
+    });
+
+    return encryptedArray.join("");
+  };
+
+  const encryptLowerCase = (char, n) => {
+    /**
+     * @returns {String} Character displaced N times
+     */
+    if (char.charCodeAt() > 122 - n) {
+      return String.fromCharCode(n - (122 - char.charCodeAt()) + 96);
+    } else {
+      return String.fromCharCode(char.charCodeAt() + n);
+    }
+  };
+
+  const encryptUpperCase = (char, n) => {
+    /**
+     * @returns {String} Character displaced N times
+     */
+    if (char.charCodeAt() > 90 - n) {
+      return String.fromCharCode(n - (90 - char.charCodeAt()) + 64);
+    } else {
+      return String.fromCharCode(char.charCodeAt() + n);
+    }
+  }; //ASCII
+
+  return { encrypt };
+})();
+
+module.exports = { capitalize, reverseString, calculator, caesarCipher };

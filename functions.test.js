@@ -123,3 +123,24 @@ describe("Takes two arguments (numbers) and gets the arithmetic multiplication."
     },
   );
 });
+
+/**
+ * Test of caesarCipher()
+ */
+
+const caesarCipherCases = [
+  ["xyz", 3, "abc"],
+  ["HeLLo", 3, "KhOOr"],
+  ["Hello, World!", 3, "Khoor, Zruog!"],
+];
+
+describe("Takes a string and a shift factor and returns it with each character 'shifted'", () => {
+  test.each(caesarCipherCases)(
+    "given %s as argument and %d as shif factor, returns %s",
+    (textInput, shiftFactor, result) => {
+      expect(functions.caesarCipher.encrypt(textInput, shiftFactor)).toEqual(
+        result,
+      );
+    },
+  );
+});
