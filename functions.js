@@ -24,12 +24,21 @@ const calculator = (() => {
     if (checkInputNumber(firstArg, secondArg)) {
       return Number(firstArg) + Number(secondArg);
     } else {
-      console.error("Input data type must be 'number'");
+      console.error("Input data type must be 'number' type");
       return;
     }
   };
 
-  return { add };
+  const subtract = (firstArg, secondArg) => {
+    if (checkInputNumber(firstArg, secondArg)) {
+      return Number(firstArg) - Number(secondArg);
+    } else {
+      console.error("Input data type must be 'number' type");
+      return;
+    }
+  };
+
+  return { add, subtract };
 })();
 
 module.exports = { capitalize, reverseString, calculator };

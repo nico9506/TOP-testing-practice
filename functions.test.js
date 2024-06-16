@@ -63,3 +63,23 @@ describe("Takes two arguments (numbers) and returns the sum of both values.", ()
     },
   );
 });
+
+const subtractCases = [
+  [1, 2, -1],
+  [5, "one", undefined],
+  [-3, -2, -1],
+  [0, -999, 999],
+  ["1", 1, undefined],
+  ["q", "w", undefined],
+];
+
+describe("Takes two arguments (numbers) and returns the difference of both values.", () => {
+  test.each(subtractCases)(
+    "given %d and %d as arguments, returns %d",
+    (firstArg, secondArg, result) => {
+      expect(functions.calculator.subtract(firstArg, secondArg)).toEqual(
+        result,
+      );
+    },
+  );
+});
