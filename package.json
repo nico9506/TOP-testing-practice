@@ -1,0 +1,26 @@
+{
+  "name": "top-testing-practice",
+  "version": "1.0.0",
+  "description": "Practice of TDD using Jest",
+  "main": "functions.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nico9506/TOP-testing-practice.git"
+  },
+  "keywords": [
+    "jest",
+    "top"
+  ],
+  "author": "Nicolas Lopez",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/nico9506/TOP-testing-practice/issues"
+  },
+  "homepage": "https://github.com/nico9506/TOP-testing-practice#readme",
+  "devDependencies": {
+    "jest": "^29.7.0"
+  }
+}
