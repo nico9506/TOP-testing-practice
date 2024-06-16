@@ -37,3 +37,29 @@ describe("Takes a string and returns it reversed.", () => {
     },
   );
 });
+
+/**
+ * Test of calculator
+ * add
+ * subtract
+ * divide
+ * multiply
+ */
+
+const addCases = [
+  [1, 2, 3],
+  [5, "one", undefined],
+  [-3, -2, -5],
+  [0, -999, -999],
+  ["1", 1, undefined],
+  ["q", "w", undefined],
+];
+
+describe("Takes two arguments (numbers) and returns the sum of both values.", () => {
+  test.each(addCases)(
+    "given %d and %d as arguments, returns %d",
+    (firstArg, secondArg, result) => {
+      expect(functions.calculator.add(firstArg, secondArg)).toEqual(result);
+    },
+  );
+});

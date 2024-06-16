@@ -12,6 +12,24 @@ const reverseString = (stringInput) => {
   return reversed;
 };
 
-console.log(reverseString("nico"));
+const calculator = (() => {
+  const checkInputNumber = (firstArg, secondArg) => {
+    console.log(typeof firstArg, "---", typeof secondArg);
+    return typeof firstArg !== "number" || typeof secondArg !== "number"
+      ? false
+      : true;
+  };
 
-module.exports = { capitalize, reverseString };
+  const add = (firstArg, secondArg) => {
+    if (checkInputNumber(firstArg, secondArg)) {
+      return Number(firstArg) + Number(secondArg);
+    } else {
+      console.error("Input data type must be 'number'");
+      return;
+    }
+  };
+
+  return { add };
+})();
+
+module.exports = { capitalize, reverseString, calculator };
