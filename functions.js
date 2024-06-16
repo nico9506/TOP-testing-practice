@@ -38,7 +38,29 @@ const calculator = (() => {
     }
   };
 
-  return { add, subtract };
+  const divide = (firstArg, secondArg) => {
+    if (!checkInputNumber(firstArg, secondArg)) {
+      console.error("Input data type must be 'number' type");
+      return;
+    }
+
+    if (firstArg === 0) return 0;
+
+    return secondArg !== 0 ? Number(firstArg) / Number(secondArg) : undefined;
+  };
+
+  const multiply = (firstArg, secondArg) => {
+    if (checkInputNumber(firstArg, secondArg)) {
+      return firstArg === 0 || secondArg === 0
+        ? 0
+        : Number(firstArg) * Number(secondArg);
+    } else {
+      console.error("Input data type must be 'number' type");
+      return;
+    }
+  };
+
+  return { add, subtract, divide, multiply };
 })();
 
 module.exports = { capitalize, reverseString, calculator };

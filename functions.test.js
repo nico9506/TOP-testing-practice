@@ -83,3 +83,43 @@ describe("Takes two arguments (numbers) and returns the difference of both value
     },
   );
 });
+
+const divideCases = [
+  [1, 2, 0.5],
+  [5, "one", undefined],
+  [-3, -2, 1.5],
+  [0, -999, 0],
+  [1, 0, undefined],
+  ["1", 1, undefined],
+  ["q", "w", undefined],
+];
+
+describe("Takes two arguments (numbers) and divide the first into the second.", () => {
+  test.each(divideCases)(
+    "given %d and %d as arguments, returns %d",
+    (firstArg, secondArg, result) => {
+      expect(functions.calculator.divide(firstArg, secondArg)).toEqual(result);
+    },
+  );
+});
+
+const multiplyCases = [
+  [1, 2.5, 2.5],
+  [5, "one", undefined],
+  [-3, -2, 6],
+  [0, -999, 0],
+  [1, 0, 0],
+  ["1", 1, undefined],
+  ["q", "w", undefined],
+];
+
+describe("Takes two arguments (numbers) and gets the arithmetic multiplication.", () => {
+  test.each(multiplyCases)(
+    "given %d and %d as arguments, returns %d",
+    (firstArg, secondArg, result) => {
+      expect(functions.calculator.multiply(firstArg, secondArg)).toEqual(
+        result,
+      );
+    },
+  );
+});
